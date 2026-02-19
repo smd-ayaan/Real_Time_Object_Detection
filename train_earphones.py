@@ -2,11 +2,7 @@ import os
 from roboflow import Roboflow
 from ultralytics import YOLO
 
-# --- IMPORTANT SECURITY NOTE ---
-# Your API key is a secret! Do not share it.
-# I've put a placeholder here.
-# You must replace "YOUR_API_KEY_HERE" with your actual key.
-YOUR_API_KEY = "zb0lUz0thekklkhM7HDI"
+YOUR_API_KEY = "YOUR_API_KEY"
 
 print("Step 1: Downloading your 'earphone' dataset from Roboflow...")
 
@@ -30,12 +26,10 @@ print("\nStep 2: Starting the model training...")
 model = YOLO('yolov8n.pt')
 
 # Start the training!
-# We are 'fine-tuning' the model, so it learns 'earphone'
-# in addition to the 80 objects it already knows.
 results = model.train(
-    data=data_yaml_path,  # Path to our new data.yaml
-    epochs=50,            # 50 "rounds" of training. More is slower but often better.
-    imgsz=640             # Image size
+    data=data_yaml_path,  
+    epochs=50,            
+    imgsz=640             
 )
 
 print("\nStep 3: Training complete!")
